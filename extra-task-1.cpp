@@ -40,33 +40,42 @@ double time_to_utc(int utc_offset, double time)
     return (time < 24) ? time : time - ((int)(time / 24)) * 24;;
 }
 
-//double time_from_utc(int utc_offset, double time)
-//{
-//    /*
-//        Return UTC time in time zone utc_offset.
-//
-//        >>> time_from_utc(+0, 12.0)
-//        12.0
-// 
-//        >>> time_from_utc(+1, 12.0)
-//        13.0
-// 
-//        >>> time_from_utc(-1, 12.0)
-//        11.0
-// 
-//        >>> time_from_utc(+6, 6.0)
-//        12.0
-// 
-//        >>> time_from_utc(-7, 6.0)
-//        23.0
-// 
-//        >>> time_from_utc(-1, 0.0)
-//        23.0
-// 
-//        >>> time_from_utc(-1, 23.0)
-//        22.0
-// 
-//        >>> time_from_utc(+1, 23.0)
-//        0.0
-//    */
-//}
+double time_from_utc(int utc_offset, double time)
+{
+    time += utc_offset;
+
+    if (time < 0)
+    {
+        if (time > -24) return 24 + time;
+        else return 24 + time - ((int)(time / 24)) * 24;
+    }
+    else if (time < 24) return  time;
+    else return time - ((int)(time / 24)) * 24;
+    /*
+        Return UTC time in time zone utc_offset.
+
+        >>> time_from_utc(+0, 12.0)
+        12.0
+ 
+        >>> time_from_utc(+1, 12.0)
+        13.0
+ 
+        >>> time_from_utc(-1, 12.0)
+        11.0
+ 
+        >>> time_from_utc(+6, 6.0)
+        12.0
+ 
+        >>> time_from_utc(-7, 6.0)
+        23.0
+ 
+        >>> time_from_utc(-1, 0.0)
+        23.0
+ 
+        >>> time_from_utc(-1, 23.0)
+        22.0
+ 
+        >>> time_from_utc(+1, 23.0)
+        0.0
+    */
+}
