@@ -2,3 +2,6 @@
 double seconds_difference(double time_1, double time_2);
 double hours_difference(double time_1, double time_2);
 double to_24_hour_clock(double hours);
+double get_hours(double time);
+double get_minutes(double time);
+double get_seconds(double time);
