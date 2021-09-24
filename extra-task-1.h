@@ -5,3 +5,5 @@ double to_24_hour_clock(double hours);
 double get_hours(double time);
 double get_minutes(double time);
 double get_seconds(double time);
+
+double time_to_utc(int utc_offset, double time);
